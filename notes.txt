@@ -1,0 +1,23 @@
+1. add dark mode toggle
+2. Add Animations
+3. Add a Hero Section
+Include a hero banner at the top of the page with a welcoming message, a background image, and a call-to-action button (e.g., "Explore Vendors").
+
+
+Ask:
+Delivery and pick up
+is the ui good should i continue on it or its not that important
+Report changing and what to submit, diagrams..etc
+How will other user sign in, is the one i have ok
+vendor will have seperate view from each other
+admin will have a whole dahsboard with all stuff and vendors
+user adds to cart, choose pick or delivery, if delivery asks adress, if pick up it says pick up tomorow
+
+-----------------
+
+Sync dark mode all times
+
+
+------------
+
+Payments Qr, later we use stripe
