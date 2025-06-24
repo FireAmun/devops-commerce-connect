@@ -2,24 +2,29 @@ pipeline {
     agent any
 
     environment {
-        ISSUE_KEY = 'SCRUM-2'  // The Jira issue you created
+        ISSUE_KEY = 'SCRUM-2'
     }
 
     stages {
         stage('Build') {
             steps {
-                echo "Building..."
-                // Add your actual build/test steps here
+                echo "🔧 Building..."
             }
         }
 
         stage('Update Jira') {
             steps {
-                jiraComment (
-                    site: 'MyJira',  // This must match the Jira site name in Jenkins config
-                    issueKey: "${env.ISSUE_KEY}",
-                    body: "✅ Build passed for ${env.BUILD_TAG}"
-                )
+                script {
+                    jiraAddComment(
+                        site: 'MyJira',
+                        idOrKey: "${env.ISSUE_KEY}",
+                        comment: "✅ Jenkins build ${env.BUILD_TAG} passed!"
+                    )
+                    jiraSendBuildInfo(
+                        site: 'MyJira',
+                        idOrKey: "${env.ISSUE_KEY}"
+                    )
+                }
             }
         }
     }
